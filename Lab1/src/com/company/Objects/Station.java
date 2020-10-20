@@ -2,14 +2,12 @@ package com.company.Objects;
 
 import com.company.MapFace;
 
-import java.util.Collection;
-import java.util.Map;
-
-public class Station extends Address{
+public class Station implements MapFace {
     public String NameOfStation;
     public int AddressNumSt;
     public int[] transport;
     public int N;
+    Address adr;
 
     public enum Stations{
         RIVERPORT, BUSSTOP, RAILWAYSTATION, UNDERGROUND;
@@ -22,7 +20,7 @@ public class Station extends Address{
 
     public Station(double long1, double lat1, String name, String nameSt,
                    int addrNum, int n, int[] transp, Stations type){
-        super(long1, lat1, name);
+        adr = new Address(long1, lat1, name);
         this.NameOfStation = nameSt;
         this.AddressNumSt = addrNum;
         this.StType = type;
@@ -36,8 +34,7 @@ public class Station extends Address{
 
     @Override
     public void print(){
-        System.out.println("Longitude: " + Longitude + "\nLatitude: " + Latitude);
-        System.out.println("Street name: " + this.NameOfStreet);
+        adr.print();
         System.out.println("Address number: " + this.AddressNumSt);
         System.out.println("Station type: " + this.StType);
         System.out.println("Station name: " + this.NameOfStation);

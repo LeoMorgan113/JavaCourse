@@ -1,16 +1,13 @@
 package com.company;
 
-import com.company.Objects.Coordinates;
-
-import java.util.Collection;
 import java.util.Collection;
 import java.util.Iterator;
 
 public class Map {
     private final Collection<MapFace> Objs;
-    private long Scale;
-    private String Country;
-    private String City;
+    private final long Scale;
+    private final String Country;
+    private final String City;
 
     public Map(Collection<MapFace> m, long scale,
                String country, String city){

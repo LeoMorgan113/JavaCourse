@@ -1,6 +1,5 @@
 package com.company.Objects;
 
-import javax.naming.Name;
 
 public class Address extends Coordinates{
     public String NameOfStreet;

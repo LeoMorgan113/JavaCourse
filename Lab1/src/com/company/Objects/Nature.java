@@ -1,7 +1,10 @@
 package com.company.Objects;
 
-public class Nature extends Address{
+import com.company.MapFace;
+
+public class Nature implements MapFace{
     public String NameOfNature;
+    Address adr;
 
     public enum Natures{
         SEA, RIVER, LAKE, PARK, GARDEN, FOREST;
@@ -14,15 +17,14 @@ public class Nature extends Address{
 
     public Nature(double long1, double lat1, String name,
                   String nameOfNatur, Natures type){
-        super(long1, lat1, name);
+        adr = new Address(long1, lat1, name);
         this.NameOfNature = nameOfNatur;
         this.Type = type;
     }
 
     @Override
     public void print(){
-        System.out.println("Longitude: " + Longitude + "\nLatitude: " + Latitude);
-        System.out.println("Street name: " + this.NameOfStreet);
+        adr.print();
         System.out.println("Nature type: " + this.Type);
         System.out.println("Name of place: " + this.NameOfNature + "\n");
     }

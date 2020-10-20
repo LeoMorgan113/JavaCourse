@@ -1,10 +1,12 @@
 package com.company.Objects;
 
-import javax.naming.Name;
 
-public class Building extends Address{
+import com.company.MapFace;
+
+public class Building implements MapFace{
     public String NameOfBuilding;
     public int AddressNum;
+    Address adr;
 
     public static class IndexOfBuilding{
         public String Index;
@@ -28,7 +30,7 @@ public class Building extends Address{
     private IndexOfBuilding Index = new IndexOfBuilding();
     public Building(double long1, double lat1, String name, int addrNum,
                     String nameBuild, String indx, Buildings type){
-        super(long1, lat1, name);
+        adr = new Address(long1, lat1, name);
         this.NameOfBuilding = nameBuild;
         this.AddressNum = addrNum;
         Index.SetIndex(indx);
@@ -37,8 +39,7 @@ public class Building extends Address{
 
     @Override
     public void print(){
-        System.out.println("Longitude: " + Longitude + "\nLatitude: " + Latitude);
-        System.out.println("Street name: " + this.NameOfStreet);
+        adr.print();
         System.out.println("Address number: " + this.AddressNum);
         Index.print();
         System.out.println("Building type: " + this.Type);
