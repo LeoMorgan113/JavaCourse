@@ -1,6 +1,7 @@
 package com.company.Objects;
 
 
+import com.company.Objects.Buildings;
 import com.company.MapFace;
 
 public class Building implements MapFace{
@@ -15,17 +16,10 @@ public class Building implements MapFace{
         public IndexOfBuilding(String indx){ this.Index = indx; }
         public void SetIndex(String indx){ this.Index = indx; }
         public void print(){ System.out.println("Address index: " + this.Index);}
+        public String getIndex(){ return "Address index: " + this.Index;}
     }
 
-    public enum Buildings{
-        HOSPITAL, POLICE, FIRESTATION, SERVICE, SCHOOL,
-        KINDERGARTEN, UNIVERSITY, SHOPS, MARKETS, BANKS,
-        MUSEUM, LIBRARY;
-        @Override
-        public String toString() {
-            return super.toString().replace('_', ' ').toLowerCase();
-        }
-    }
+
     private Buildings Type;
     private IndexOfBuilding Index = new IndexOfBuilding();
     public Building(double long1, double lat1, String name, int addrNum,
@@ -38,11 +32,38 @@ public class Building implements MapFace{
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            System.out.print("ksksk");
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            System.out.print("ksksk");
+            return false;
+        }
+
+        Building B = (Building) obj;
+        return this.adr == B.adr
+                && (this.AddressNum == B.AddressNum)
+                || (this.Type != null && this.Type == B.Type) && (this.Index == B.Index)
+                || (this.NameOfBuilding != null && this.NameOfBuilding.equals(B.NameOfBuilding));
+    }
+
+    @Override
     public void print(){
         adr.print();
-        System.out.println("Address number: " + this.AddressNum);
-        Index.print();
-        System.out.println("Building type: " + this.Type);
-        System.out.println("Name of building: " + this.NameOfBuilding);
+        StringBuffer strB = new StringBuffer();
+        strB.append("Address number: ")
+                .append(this.AddressNum)
+                .append('\n')
+                .append(Index.getIndex())
+                .append('\n')
+                .append("Building type: ")
+                .append(this.Type)
+                .append('\n')
+                .append("Name of building: ")
+                .append(this.NameOfBuilding)
+                .append('\n');
+        System.out.println(strB);
     }
 }

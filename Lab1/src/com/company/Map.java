@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class Map {
-    private final Collection<MapFace> Objs;
+    protected final Collection<MapFace> Objs;
     private final long Scale;
     private final String Country;
     private final String City;
@@ -23,9 +23,17 @@ public class Map {
     }
 
     public void setMap(){
-        System.out.println("Country: " + this.Country);
-        System.out.println("City: " + this.City);
-        System.out.println("Scale: " + this.Scale);
+        StringBuffer strM = new StringBuffer();
+        strM.append("Country: ")
+                .append(this.Country)
+                .append('\n')
+                .append("City: ")
+                .append(this.City)
+                .append('\n')
+                .append("Scale: ")
+                .append(this.Scale)
+                .append('\n');
+        System.out.println(strM);
         for (Iterator<MapFace> it = Objs.iterator(); it.hasNext(); ) {
             MapFace cmp = it.next();
             cmp.print();

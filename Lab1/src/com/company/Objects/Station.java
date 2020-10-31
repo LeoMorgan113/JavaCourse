@@ -9,14 +9,8 @@ public class Station implements MapFace {
     public int N;
     Address adr;
 
-    public enum Stations{
-        RIVERPORT, BUSSTOP, RAILWAYSTATION, UNDERGROUND;
-        @Override
-        public String toString() {
-            return super.toString().replace('_', ' ').toLowerCase();
-        }
-    }
-    private Stations StType;
+
+    final private Stations StType;
 
     public Station(double long1, double lat1, String name, String nameSt,
                    int addrNum, int n, int[] transp, Stations type){
@@ -26,22 +20,34 @@ public class Station implements MapFace {
         this.StType = type;
         this.N = n;
         this.transport = new int[this.N];
-        for (int i = 0; i < this.N; i++){
+        for(int i = 0; i < this.N; i++){
             this.transport[i] = transp[i];
         }
+    }
+    public Station(String nameSt, Stations type){
 
+        this.NameOfStation = nameSt;
+        this.StType = type;
     }
 
     @Override
     public void print(){
         adr.print();
-        System.out.println("Address number: " + this.AddressNumSt);
-        System.out.println("Station type: " + this.StType);
-        System.out.println("Station name: " + this.NameOfStation);
+        StringBuffer strS = new StringBuffer();
+        StType.show_enum();
+        strS.append("\nStation name: ")
+                .append(this.NameOfStation)
+                .append('\n')
+                .append("Address number: ")
+                .append(this.AddressNumSt)
+                .append('\n');
         for (int i = 0; i < this.N; i++){
-            System.out.println("Transport(number): " + this.transport[i]);
+            strS.append("Transport(number): ")
+                    .append(this.transport[i])
+                    .append('\n');
         }
-        System.out.println("\n");
+        System.out.println(strS);
     }
+
 
 }
