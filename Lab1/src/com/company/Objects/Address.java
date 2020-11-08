@@ -13,7 +13,7 @@ public class Address extends Coordinates{
             System.out.println(ex.getMessage());
             System.out.println(ex.getCoordinate());
         }finally {
-            System.out.println("Map is ready!");
+            System.out.println("OK");
         }
 
         this.NameOfStreet = name;
@@ -23,7 +23,6 @@ public class Address extends Coordinates{
     public void print(){
         String l1 = String.valueOf(Longitude);
         String l2 = String.valueOf(Latitude);
-       // System.out.println(l1);
 
         String[] longitude = l1.split("\\.");
         String[] latitude = l2.split("\\.");

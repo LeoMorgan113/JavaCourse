@@ -14,6 +14,7 @@ public class Nature implements MapFace{
         adr = new Address(long1, lat1, name);
         this.NameOfNature = nameOfNature;
         this.Type = type;
+
     }
     public Station setStation(double long1, double lat1, String name, String nameSt,
                               int addrNum, int n, int[] transp, Stations type){

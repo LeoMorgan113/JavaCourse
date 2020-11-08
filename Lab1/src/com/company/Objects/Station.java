@@ -24,11 +24,6 @@ public class Station implements MapFace {
             this.transport[i] = transp[i];
         }
     }
-    public Station(String nameSt, Stations type){
-
-        this.NameOfStation = nameSt;
-        this.StType = type;
-    }
 
     @Override
     public void print(){

@@ -1,7 +1,6 @@
 package com.company.Objects;
 
 
-import com.company.Objects.Buildings;
 import com.company.MapFace;
 
 public class Building implements MapFace{
@@ -15,7 +14,6 @@ public class Building implements MapFace{
         public IndexOfBuilding(){ this.Index = "Index"; }
         public IndexOfBuilding(String indx){ this.Index = indx; }
         public void SetIndex(String indx){ this.Index = indx; }
-        public void print(){ System.out.println("Address index: " + this.Index);}
         public String getIndex(){ return "Address index: " + this.Index;}
     }
 
@@ -31,14 +29,16 @@ public class Building implements MapFace{
         this.Type = type;
     }
 
+    public void getIndex(){
+        System.out.println(Index.getIndex());
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {
-            System.out.print("ksksk");
             return true;
         }
         if (obj == null || obj.getClass() != this.getClass()) {
-            System.out.print("ksksk");
             return false;
         }
 
@@ -66,4 +66,5 @@ public class Building implements MapFace{
                 .append('\n');
         System.out.println(strB);
     }
+
 }
