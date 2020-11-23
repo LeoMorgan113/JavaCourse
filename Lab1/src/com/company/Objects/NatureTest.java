@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class NatureTest {
     @Test
@@ -20,6 +21,16 @@ public class NatureTest {
         Nature n2 = new Nature( 45.564, 56.7, "Pushkina",
                 "Park Pushkina", Natures.PARK);
         n2.print();
+    }
+
+    @Test
+    public void SetStationNameTest() throws CoordinatesException {
+        String StN = "Севастопольска площа";
+        Station S1 = mock(Station.class);
+        when(S1.SetStationName(StN)).thenReturn(StN);
+        Nature N1 = new Nature(S1.SetStationName(StN));
+        assertEquals(N1.SetSt(StN), StN);
+        verify(S1).SetStationName(StN);
     }
 
 }
