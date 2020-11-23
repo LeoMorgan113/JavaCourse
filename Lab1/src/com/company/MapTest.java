@@ -3,10 +3,12 @@ package com.company;
 import com.company.Objects.*;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class MapTest {
     @Test
