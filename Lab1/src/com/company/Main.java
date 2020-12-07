@@ -5,7 +5,13 @@ import java.util.ArrayList;
 
 import com.company.Objects.Buildings;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class Main {
+
 
     public static void main(String[] args) {
         Map FirstMap = new Map(new ArrayList<>(), 500, "Ukraine", "Kramatorsk");
@@ -40,5 +46,43 @@ public class Main {
                 "School #3", "78401", Buildings.SCHOOL);
         System.out.print("Result of override equals: ");
         System.out.println(b1.equals(b2));
+
+
+        System.out.println("\n\nAll buildings on Map: " + FirstMap.findAll(component -> component instanceof Building));
+        System.out.println("\nThe closest object: " +
+                FirstMap.getObjs()
+                        .stream()
+                        .reduce(FirstMap.getObjs().stream().findFirst().get(),
+                                (component, different) -> component.GetLatitude() < different.GetLatitude()
+                                        && component.GetLongitude() < different.GetLongitude()
+                                        ? component : different ));
+
+        System.out.println("\nAverage Longitude: " +
+                FirstMap
+                        .getObjs()
+                        .stream()
+                        .mapToDouble(comp -> comp.GetLongitude())
+                        .average()
+                        .getAsDouble()
+        );
+
+        System.out.println("Average Latitude: " +
+                FirstMap
+                        .getObjs()
+                        .stream()
+                        .mapToDouble(comp -> comp.GetLatitude())
+                        .average()
+                        .getAsDouble()
+        );
+
+        java.util.Map<Object, List<MapFace>> mappedComponents =
+                FirstMap.getObjs()
+                .stream()
+                .collect(Collectors.groupingBy(component -> component.GetLongitude() > 50
+                        && component.GetLatitude() > 50 ? "further" : "closer"));
+        System.out.println("\nMapped objects on Map: ");
+        System.out.println(mappedComponents);
+
+
     }
 }

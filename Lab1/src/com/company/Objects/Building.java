@@ -28,7 +28,6 @@ public class Building implements MapFace{
         this.AddressNum = 0;
         Index.SetIndex(idx);
         this.Type = Buildings.NONE;
-
     }
     public Building(double long1, double lat1, String name, int addrNum,
                     String nameBuild, String indx, Buildings type){
@@ -43,6 +42,7 @@ public class Building implements MapFace{
         this.NameOfBuilding = nameBuild;
         return this.NameOfBuilding;
     }
+
     public String getIdx(){ return Index.Get(); }
     public void getIndex(){
         System.out.println(Index.getIndex());
@@ -62,6 +62,21 @@ public class Building implements MapFace{
                 && (this.AddressNum == B.AddressNum)
                 || (this.Type != null && this.Type == B.Type) && (this.Index == B.Index)
                 || (this.NameOfBuilding != null && this.NameOfBuilding.equals(B.NameOfBuilding));
+    }
+
+    @Override
+    public double GetLongitude(){
+        return adr.coord_y();
+    }
+
+    @Override
+    public double GetLatitude(){
+        return adr.coord_x();
+    }
+
+    @Override
+    public String GetName(){
+        return this.NameOfBuilding;
     }
 
     @Override

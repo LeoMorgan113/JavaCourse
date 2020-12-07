@@ -1,7 +1,9 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.function.Predicate;
 
 public class Map {
     protected final Collection<MapFace> Objs;
@@ -20,6 +22,18 @@ public class Map {
     public Map addObjects(MapFace obj){
         this.Objs.add(obj);
         return this;
+    }
+    public Collection<MapFace> findAll(Predicate<? super MapFace> obj) {
+        Collection<MapFace> components = new ArrayList<>();
+        for (MapFace comp : this.Objs) {
+            if (obj.test(comp))
+                components.add(comp);
+        }
+        return components;
+    }
+
+    public Collection<MapFace> getObjs(){
+        return this.Objs;
     }
 
     public void setMap(){

@@ -29,11 +29,27 @@ public class Nature implements MapFace{
         st = new Station(StName);
     }
 
+
     public String GetSt(){
-        return st.GetStationName();
+        return st.GetName();
     }
     public String SetSt(String stn){
         return st.SetStationName(stn);
+    }
+
+    @Override
+    public double GetLongitude(){
+        return adr.coord_y();
+    }
+
+    @Override
+    public double GetLatitude(){
+        return adr.coord_x();
+    }
+
+    @Override
+    public String GetName(){
+        return this.NameOfNature;
     }
 
     @Override

@@ -36,6 +36,20 @@ public class Address extends Coordinates{
         }
 
     }
+    @Override
+    public double GetLongitude(){
+        return coord_y();
+    }
+
+    @Override
+    public double GetLatitude(){
+        return coord_x();
+    }
+
+    @Override
+    public String GetName(){
+        return this.NameOfStreet;
+    }
 
     @Override
     public void print(){

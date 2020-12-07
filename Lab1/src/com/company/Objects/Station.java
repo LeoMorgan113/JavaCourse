@@ -2,12 +2,17 @@ package com.company.Objects;
 
 import com.company.MapFace;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Station implements MapFace {
     public String NameOfStation;
     public int AddressNumSt;
-    public int[] transport;
+    public Integer[] transport;
     public int N;
     Address adr;
+    List<Integer> tr_list;
 
 
     final private Stations StType;
@@ -19,11 +24,14 @@ public class Station implements MapFace {
         this.AddressNumSt = addrNum;
         this.StType = type;
         this.N = n;
-        this.transport = new int[this.N];
+        this.transport = new Integer[this.N];
         for(int i = 0; i < this.N; i++){
             this.transport[i] = transp[i];
         }
+        tr_list = Arrays.asList(transport);
     }
+
+
     public Station(String nameSt) throws CoordinatesException {
         adr = new Address();
         this.NameOfStation = nameSt;
@@ -32,14 +40,39 @@ public class Station implements MapFace {
         this.N = 0;
     }
 
+    public List<Integer> GetTransport() {
+        return tr_list;
+    }
+
+    public int GetTr(){
+        return transport[0];
+    }
+
     public String SetStationName(String nameSt){
         this.NameOfStation = nameSt;
         return this.NameOfStation;
     }
-    public String GetStationName(){
-        return this.NameOfStation;
+
+    public Stations getStType(){
+        return StType;
     }
 
+    
+
+    @Override
+    public double GetLongitude(){
+        return adr.coord_y();
+    }
+
+    @Override
+    public double GetLatitude(){
+        return adr.coord_x();
+    }
+
+    @Override
+    public String GetName(){
+        return this.NameOfStation;
+    }
 
     @Override
     public void print(){
