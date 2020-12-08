@@ -49,12 +49,12 @@ public class Main {
 
 
         System.out.println("\n\nAll buildings on Map: " + FirstMap.findAll(component -> component instanceof Building));
-        System.out.println("\nThe closest object: " +
+        System.out.println("\nThe futher object: " +
                 FirstMap.getObjs()
                         .stream()
                         .reduce(FirstMap.getObjs().stream().findFirst().get(),
-                                (component, different) -> component.GetLatitude() < different.GetLatitude()
-                                        && component.GetLongitude() < different.GetLongitude()
+                                (component, different) -> component.GetLatitude() > different.GetLatitude()
+                                        && component.GetLongitude() > different.GetLongitude()
                                         ? component : different ));
 
         System.out.println("\nAverage Longitude: " +
