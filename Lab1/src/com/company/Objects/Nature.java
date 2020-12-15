@@ -2,6 +2,8 @@ package com.company.Objects;
 
 import com.company.MapFace;
 
+import java.util.ArrayList;
+
 public class Nature implements MapFace{
     public String NameOfNature;
     Address adr;
@@ -21,6 +23,7 @@ public class Nature implements MapFace{
         st = new Station(long1, lat1, name, nameSt, addrNum, n, transp, type);
         return st;
     }
+
 
     public Nature(String StName) throws CoordinatesException{
         adr = new Address();
@@ -51,6 +54,7 @@ public class Nature implements MapFace{
     public String GetName(){
         return this.NameOfNature;
     }
+
 
     @Override
     public void print(){

@@ -32,6 +32,8 @@ public class Map {
         return components;
     }
 
+
+
     public Collection<MapFace> getObjs(){
         return this.Objs;
     }

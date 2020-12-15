@@ -3,6 +3,8 @@ package com.company.Objects;
 
 import com.company.MapFace;
 
+import java.util.ArrayList;
+
 public class Building implements MapFace{
     public String NameOfBuilding;
     public int AddressNum;

@@ -3,8 +3,6 @@ package com.company.Objects;
 import com.company.MapFace;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Station implements MapFace {
     public String NameOfStation;
@@ -12,23 +10,26 @@ public class Station implements MapFace {
     public Integer[] transport;
     public int N;
     Address adr;
-    List<Integer> tr_list;
+    ArrayList<Integer> _transpotr;
 
 
     final private Stations StType;
 
     public Station(double long1, double lat1, String name, String nameSt,
                    int addrNum, int n, int[] transp, Stations type){
+
         adr = new Address(long1, lat1, name);
         this.NameOfStation = nameSt;
         this.AddressNumSt = addrNum;
         this.StType = type;
         this.N = n;
         this.transport = new Integer[this.N];
+        this._transpotr = new ArrayList<>();
         for(int i = 0; i < this.N; i++){
             this.transport[i] = transp[i];
+            _transpotr.add(transp[i]);
         }
-        tr_list = Arrays.asList(transport);
+
     }
 
 
@@ -40,12 +41,8 @@ public class Station implements MapFace {
         this.N = 0;
     }
 
-    public List<Integer> GetTransport() {
-        return tr_list;
-    }
-
-    public int GetTr(){
-        return transport[0];
+    public ArrayList<Integer> GetTransp(){
+        return _transpotr;
     }
 
     public String SetStationName(String nameSt){
@@ -56,8 +53,6 @@ public class Station implements MapFace {
     public Stations getStType(){
         return StType;
     }
-
-    
 
     @Override
     public double GetLongitude(){

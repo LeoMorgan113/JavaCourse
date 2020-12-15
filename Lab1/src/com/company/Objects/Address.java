@@ -1,6 +1,8 @@
 package com.company.Objects;
 
 
+import java.util.ArrayList;
+
 public class Address extends Coordinates{
     public String NameOfStreet;
 
@@ -50,6 +52,7 @@ public class Address extends Coordinates{
     public String GetName(){
         return this.NameOfStreet;
     }
+
 
     @Override
     public void print(){

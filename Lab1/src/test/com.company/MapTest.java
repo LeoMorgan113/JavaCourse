@@ -5,14 +5,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.Before;
-import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 public class MapTest {
     public Map actual;
