@@ -1,6 +1,11 @@
 package com.company.Objects;
 
 
+<<<<<<< HEAD
+import java.util.ArrayList;
+
+=======
+>>>>>>> 00b2abe0148e4ee7443d249765b80e64ff9369f8
 public class Address extends Coordinates{
     public String NameOfStreet;
 
@@ -36,6 +41,24 @@ public class Address extends Coordinates{
         }
 
     }
+<<<<<<< HEAD
+    @Override
+    public double GetLongitude(){
+        return coord_y();
+    }
+
+    @Override
+    public double GetLatitude(){
+        return coord_x();
+    }
+
+    @Override
+    public String GetName(){
+        return this.NameOfStreet;
+    }
+
+=======
+>>>>>>> 00b2abe0148e4ee7443d249765b80e64ff9369f8
 
     @Override
     public void print(){
