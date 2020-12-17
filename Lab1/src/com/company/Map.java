@@ -1,7 +1,14 @@
 package com.company;
 
+<<<<<<< HEAD
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.function.Predicate;
+=======
+import java.util.Collection;
+import java.util.Iterator;
+>>>>>>> 00b2abe0148e4ee7443d249765b80e64ff9369f8
 
 public class Map {
     protected final Collection<MapFace> Objs;
@@ -21,6 +28,23 @@ public class Map {
         this.Objs.add(obj);
         return this;
     }
+<<<<<<< HEAD
+    public Collection<MapFace> findAll(Predicate<? super MapFace> obj) {
+        Collection<MapFace> components = new ArrayList<>();
+        for (MapFace comp : this.Objs) {
+            if (obj.test(comp))
+                components.add(comp);
+        }
+        return components;
+    }
+
+
+
+    public Collection<MapFace> getObjs(){
+        return this.Objs;
+    }
+=======
+>>>>>>> 00b2abe0148e4ee7443d249765b80e64ff9369f8
 
     public void setMap(){
         StringBuffer strM = new StringBuffer();

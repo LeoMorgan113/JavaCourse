@@ -3,6 +3,11 @@ package com.company.Objects;
 
 import com.company.MapFace;
 
+<<<<<<< HEAD
+import java.util.ArrayList;
+
+=======
+>>>>>>> 00b2abe0148e4ee7443d249765b80e64ff9369f8
 public class Building implements MapFace{
     public String NameOfBuilding;
     public int AddressNum;
@@ -28,7 +33,10 @@ public class Building implements MapFace{
         this.AddressNum = 0;
         Index.SetIndex(idx);
         this.Type = Buildings.NONE;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 00b2abe0148e4ee7443d249765b80e64ff9369f8
     }
     public Building(double long1, double lat1, String name, int addrNum,
                     String nameBuild, String indx, Buildings type){
@@ -43,6 +51,10 @@ public class Building implements MapFace{
         this.NameOfBuilding = nameBuild;
         return this.NameOfBuilding;
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 00b2abe0148e4ee7443d249765b80e64ff9369f8
     public String getIdx(){ return Index.Get(); }
     public void getIndex(){
         System.out.println(Index.getIndex());
@@ -65,6 +77,24 @@ public class Building implements MapFace{
     }
 
     @Override
+<<<<<<< HEAD
+    public double GetLongitude(){
+        return adr.coord_y();
+    }
+
+    @Override
+    public double GetLatitude(){
+        return adr.coord_x();
+    }
+
+    @Override
+    public String GetName(){
+        return this.NameOfBuilding;
+    }
+
+    @Override
+=======
+>>>>>>> 00b2abe0148e4ee7443d249765b80e64ff9369f8
     public void print(){
         adr.print();
         StringBuffer strB = new StringBuffer();
